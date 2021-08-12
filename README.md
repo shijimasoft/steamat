@@ -17,7 +17,7 @@ STEAMAT is a powerful client written in Rust that use [scraper](https://github.c
 ## ⚡️ How to run it
 <hr>
 
-*Rename your binary file in "steamat" (or compile the source code with "cargo build --release") first*
+*Rename your binary file in "steamat" (or compile the source code with `cargo build --release`) first*
 
 ```
 *On Linux*
