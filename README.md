@@ -30,8 +30,6 @@ steamat.exe "game title"
 
 *A list of **occurrences** will appear according to the game title, you have to select the right one with the corresponding **index***
 
-<br>
-
 ### ✅ To-Do
 <hr>
 
