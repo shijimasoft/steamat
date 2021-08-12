@@ -11,7 +11,7 @@
 ## 📌 More 
 <hr>
 
-STEAMAT is a powerful client written in Rust that use [scraper](https://github.com/causal-agent/scraper) and [ureq](https://github.com/algesten/ureq) libraries to collect and parse data from [steamcharts](https://steamcharts.com/) webpages
+STEAMAT is a powerful client written in Rust which uses [scraper](https://github.com/causal-agent/scraper) and [ureq](https://github.com/algesten/ureq) libraries to collect and parse data from [steamcharts](https://steamcharts.com/) webpages
 <br>
 
 ## ⚡️ How to run it
