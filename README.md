@@ -6,7 +6,7 @@
 
 *Gather statistics of steam games in your terminal*
 
-<p align="center"><img src="https://i.ibb.co/Lkp3v9s/steamat.png" alt="steamat" width="340"></p>
+<p align="center"><img src="https://i.ibb.co/rbRyfbD/steamat.png" alt="steamat" width="340"></p>
 
 ## 📌 More 
 <hr>
