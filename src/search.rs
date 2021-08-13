@@ -23,6 +23,10 @@ pub fn run(game: String) -> [String; 2] {
         names.push(alt.value().attr("alt").unwrap());
         idx += 1;
     }
+    if names.len() == 0 {
+        println!("No matching games found.");
+        std::process::exit(0);
+    }
     for part in query.select(&a) {
         parts.push(part.value().attr("href").unwrap());
     }
@@ -30,7 +34,6 @@ pub fn run(game: String) -> [String; 2] {
     parts.truncate(parts.len()-5); // "https://twitter.com/steamcharts" "/about" "/privacy" "/ads" "http://steampowered.com"
     parts.remove(0); // "/"
     let mut o = 1; parts.retain(|_| { o +=1; o % 2 == 0 }); // Remove doubled values
-    
     let mut choice = String::from("");
     print!(">> ");
     io::stdout().flush().expect("stdout: error in flush");
@@ -39,7 +42,7 @@ pub fn run(game: String) -> [String; 2] {
 
     if select > parts.len()-1 {
         println!("Please enter a correct option");
-        return ["".to_string(), "".to_string()];
+        std::process::exit(0);
     } else {
         return [names[select].to_string(), parts[select].to_string()];
     }
