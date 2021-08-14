@@ -1,6 +1,9 @@
 extern crate ureq;
 extern crate scraper;
 
+#[path = "./utils.rs"]
+mod utils;
+
 use scraper::{Html, Selector};
 use std::io::{self, Write};
 
@@ -23,10 +26,8 @@ pub fn run(game: String) -> [String; 2] {
         names.push(alt.value().attr("alt").unwrap());
         idx += 1;
     }
-    if names.len() == 0 {
-        println!("No matching games found.");
-        std::process::exit(0);
-    }
+    if names.len() == 0 { utils::abort("No matching games found.") }
+
     for part in query.select(&a) {
         parts.push(part.value().attr("href").unwrap());
     }
@@ -36,14 +37,10 @@ pub fn run(game: String) -> [String; 2] {
     let mut o = 1; parts.retain(|_| { o +=1; o % 2 == 0 }); // Remove doubled values
     let mut choice = String::from("");
     print!(">> ");
-    io::stdout().flush().expect("stdout: error in flush");
-    io::stdin().read_line(&mut choice).expect("stdin: error in read_line");
+    io::stdout().flush().unwrap();
+    io::stdin().read_line(&mut choice).unwrap();
     let select: usize = choice.trim_end().parse::<usize>().expect("Please enter a number");
+    if select > parts.len()-1 { utils::abort("Please enter a correct option") }
 
-    if select > parts.len()-1 {
-        println!("Please enter a correct option");
-        std::process::exit(0);
-    } else {
-        return [names[select].to_string(), parts[select].to_string()];
-    }
+    return [names[select].to_string(), parts[select].to_string()]
 }
