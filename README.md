@@ -6,7 +6,7 @@
 
 *Gather statistics of steam games from steamcharts in your terminal*
 
-<p align="center"><img src="https://i.ibb.co/rbRyfbD/steamat.png" alt="steamat" width="340"></p>
+<p align="center"><img src="https://i.ibb.co/s2fvvHL/steamat.png" alt="steamat" width="340"></p>
 
 ## 📌 More 
 <hr>
@@ -51,6 +51,6 @@ steamat.exe "game title"
 <hr>
 
 - [x] Basic stats
-- [x] Player gain/loss
+- [x] Last 30 Days stats
 - [ ] History table
 
