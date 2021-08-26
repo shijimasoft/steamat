@@ -25,6 +25,10 @@ STEAMAT is a powerful client written in Rust which uses [scraper](https://github
 
 *On Windows*
 steamat.exe "game title"
+
+*On macOS*
+chmod 755 steamat # One time
+./steamat "game title"
 ```
 <br>
 
