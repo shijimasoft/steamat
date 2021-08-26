@@ -42,6 +42,11 @@ steamat.exe "game title"
 
 `steamat -lm "Subnautica: Below Zero"`
 
+<b>History of statistics:</b> <br>
+(Table that contains the history of stats)
+
+`steamat -h "Cyberpunk 2077"`
+
 <b>STEAMAT version:</b> <br>
 (Show the latest version of STEAMAT)
 
@@ -52,5 +57,5 @@ steamat.exe "game title"
 
 - [x] Basic stats
 - [x] Last 30 Days stats
-- [ ] History table
+- [x] History table
 

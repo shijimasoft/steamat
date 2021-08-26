@@ -1,8 +1,10 @@
 extern crate ureq;
 extern crate scraper;
 
+#[path = "./utils.rs"]
+mod utils;
+
 use scraper::{Html, Selector};
-use colored::Colorize;
 
 pub fn run(link: String) -> Vec<String> {
     let mut last_month: Vec<String> = Vec::new();
@@ -21,14 +23,12 @@ pub fn run(link: String) -> Vec<String> {
     // Gain
     class = Selector::parse(r#"td[class="right num-p gainorloss italic"]"#).unwrap();
     last_month.push(stats.select(&class).next().unwrap().inner_html());
-    if last_month[1].contains("+") { last_month[1] = last_month[1].green().to_string() }
-    else if last_month[1].contains("-") { last_month[1] = last_month[1].red().to_string() }
+    last_month[1] = utils::to_color(last_month[1].clone());
 
     // % Gain
     class = Selector::parse(r#"td[class="right gainorloss italic"]"#).unwrap();
     last_month.push(stats.select(&class).next().unwrap().inner_html());
-    if last_month[2].contains("+") { last_month[2] = last_month[2].green().to_string() }
-    else if last_month[2].contains("-") { last_month[2] = last_month[2].red().to_string() }
+    last_month[2] = utils::to_color(last_month[2].clone());
 
     // Peak Players
     class = Selector::parse(r#"td[class="right num italic"]"#).unwrap();

@@ -3,22 +3,23 @@ extern crate clearscreen;
 mod search;
 mod statistic;
 mod last_month;
+mod history;
 mod utils;
 
 use colored::Colorize;
 
 fn main() {
-    let ver = "v1.1";
+    let ver = "v1.2";
     let args: Vec<String> = std::env::args().collect();
     if args.len() < 2 {
         utils::abort(r#"
-        Usage: steamat [option] "game title"
+Usage: steamat [option] "game title"
         
-        OPTIONS:
+    OPTIONS:
             
-            -lm,  --last-month   Last month statistics
-            -v,   --version      Show steamat version
-        "#);
+        -lm,  --last-month   Last month statistics
+        -h,   --history      History of statistics
+        -v,   --version      Show steamat version"#);
     }
     match args[1].clone().as_ref() {
         // Version
@@ -42,6 +43,13 @@ fn main() {
       {}     = {}
       {}    = {}
             ", searched[0].bold(), "Average players".bold(), last_month[0], "Gain-Loss".bold(), last_month[1], "% Gain-Loss".bold(), last_month[2], "Peak players".bold(), last_month[3]);
+        }
+
+        // History table
+        "-h" | "--history" => {
+            if args.len() < 3 { utils::abort("Please also enter the game title") }
+            let searched = search::run(args[2].clone());
+            history::run(searched[1].to_string(), searched[0].to_string());
         }
 
         // Current stats
