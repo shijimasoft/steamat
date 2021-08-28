@@ -1,7 +1,7 @@
 ![license](https://img.shields.io/badge/license-GPLv3-brightgreen)
 ![linux64](https://img.shields.io/badge/linux-release64-orange)
 ![win64](https://img.shields.io/badge/windows-release64-informational)
-
+![macos64](https://img.shields.io/badge/macOS-release64-magenta)
 # STEAMAT
 
 *Gather statistics of steam games from steamcharts in your terminal*
@@ -27,7 +27,7 @@ STEAMAT is a powerful client written in Rust which uses [scraper](https://github
 steamat.exe "game title"
 
 *On macOS*
-chmod 755 steamat # One time
+chmod +x steamat #Do it only one time
 ./steamat "game title"
 ```
 <br>
