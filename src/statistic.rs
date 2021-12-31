@@ -11,6 +11,7 @@ pub fn run(link: String) -> Vec<String> {
     let domain = format!("https://steamcharts.com{}", link); // Final URL
     let body = ureq::get(&domain)
         .call()
+        .unwrap()
         .into_string()
         .unwrap();
     

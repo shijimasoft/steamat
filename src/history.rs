@@ -14,6 +14,7 @@ pub fn run(link: String, title: String) {
     let domain = format!("https://steamcharts.com{}", link);
     let body = ureq::get(&domain)
         .call()
+        .unwrap()
         .into_string()
         .unwrap();
     let historypage = Html::parse_document(&body);

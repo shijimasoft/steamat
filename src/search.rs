@@ -11,6 +11,7 @@ pub fn run(game: String) -> [String; 2] {
     let url = format!("https://steamcharts.com/search/?q={}", game.replace(" ", "+")); // Search URL
     let body = ureq::get(&url) // Get HTML code
         .call()
+        .unwrap()
         .into_string()
         .unwrap();
     
@@ -35,6 +36,9 @@ pub fn run(game: String) -> [String; 2] {
     parts.truncate(parts.len()-5); // "https://twitter.com/steamcharts" "/about" "/privacy" "/ads" "http://steampowered.com"
     parts.remove(0); // "/"
     let mut o = 1; parts.retain(|_| { o +=1; o % 2 == 0 }); // Remove doubled values
+
+    if names.len() == 1 { return [names[0].to_string(), parts[0].to_string()] }
+
     let mut choice = String::from("");
     print!(">> ");
     io::stdout().flush().unwrap();
