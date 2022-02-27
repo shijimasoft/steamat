@@ -1,7 +1,7 @@
 ![license](https://img.shields.io/badge/license-GPLv3-brightgreen)
-![linux64](https://img.shields.io/badge/linux-release64-orange)
-![win64](https://img.shields.io/badge/windows-release64-informational)
-![macos64](https://img.shields.io/badge/macOS-release64-magenta)
+![linux64](https://img.shields.io/badge/linux-x86__64-orange)
+![win64](https://img.shields.io/badge/windows-x86__64-informational)
+![macos64](https://img.shields.io/badge/macOS-x86__64-magenta)
 # STEAMAT
 
 *Gather statistics of steam games from steamcharts in your terminal*
